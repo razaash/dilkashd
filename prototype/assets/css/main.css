@@ -1,0 +1,352 @@
+@font-face {
+  font-family: "Stylo";
+  src: url("/assets/fonts/stylo_regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Stylo";
+  src: url("/assets/fonts/stylo_bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --main-font: "Stylo", sans-serif;
+  --base-font-size: 16px;
+  --primary-color: #333;
+  --grayish: #f1f1f1;
+  --bluish: #b6b4c7;
+  --fs-lg: 2.25rem;
+  --fs-md: 2rem;
+  --fs-sm: 0.9rem;
+  --fs-xs: 0.7rem;
+}
+
+@media (width >44em) {
+  :root {
+    --fs-lg: 3rem;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* For Webkit browsers (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  width: 6px; /* Width of the scrollbar */
+  height: 6px; /* Height of the scrollbar (for horizontal scrollbars) */
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Background of the scrollbar track */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #000; /* Color of the scrollbar thumb */
+  border-radius: 3px; /* Rounded corners on the scrollbar thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Color when hovering over the scrollbar thumb */
+}
+
+/* For Firefox */
+html {
+  scrollbar-width: thin; /* Makes the scrollbar thin */
+  scrollbar-color: black #f1f1f1; /* Scrollbar color (thumb color first, then track color) */
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--main-font);
+  font-size: var(--fs-sm);
+  color: var(--primary-color);
+  letter-spacing: 1px;
+  background-color: white;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.1;
+}
+
+p {
+  line-height: 1.5;
+  max-width: 70ch;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+button {
+  font-size: var(--fs-sm);
+}
+
+img {
+  width: 100%;
+}
+
+section {
+  overflow: hidden;
+}
+
+.grayish {
+  background-color: var(--grayish);
+}
+
+.bluish {
+  color: var(--bluish);
+}
+
+.brb {
+  border-bottom: 1px solid #e1e1e1;
+}
+
+.py-6 {
+  padding: 100px 0;
+}
+
+.cta {
+  background-color: #000;
+  border: 1px solid #000;
+  color: #fff;
+  text-transform: uppercase;
+  padding: 0.8rem 1.2rem;
+  display: inline-block;
+}
+
+.button-container {
+  position: relative;
+  display: inline-block;
+}
+
+.cta {
+  position: relative;
+  padding: 15px 30px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #000;
+  text-decoration: none; /* Remove underline from <a> */
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  z-index: 1;
+  display: inline-block; /* Ensure it behaves like a block element */
+  transition: color 0.3s ease-in-out;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.65);
+}
+
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  transform: scale(0);
+  background-color: #fff;
+  pointer-events: none;
+  z-index: -1;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.cta:hover {
+  color: #000;
+}
+
+.main-heading {
+  background-color: var(--grayish);
+  border-bottom: 1px solid #e1e1e1;
+  text-align: center;
+  padding: 0.5rem 0;
+  text-transform: uppercase;
+}
+
+.top-bar {
+  font-size: var(--fs-xs);
+}
+
+.nav-bar {
+  position: -webkit-sticky; /* For Safari */
+  position: sticky;
+  top: 0;
+  z-index: 9999999;
+  background-color: #fff;
+  width: 100%;
+}
+
+.logo {
+  width: 150px;
+}
+
+.bi-person {
+  font-size: 1.1rem;
+}
+
+.cat {
+  overflow: hidden;
+  border-top-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  position: relative;
+  transition: transform 0.3s ease-in-out;
+  display: block;
+  margin-bottom: 20px;
+}
+
+.cat-info {
+  position: absolute;
+  bottom: 0;
+  left: 10px;
+  font-weight: bold;
+  color: #fff;
+  font-size: 1rem;
+}
+
+.cat-overlay {
+  border-image: linear-gradient(hsl(240 100% 20% / 0.6), hsl(0 100% 20% / 0.6))
+    fill 1;
+}
+
+.grader {
+  width: 100%;
+  height: 100%;
+  background: black;
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 1) 100%,
+    rgba(0, 0, 0, 1) 100%
+  );
+}
+
+.cat:hover img {
+  scale: 1.2;
+  transition: all 0.5s ease;
+}
+
+.cat .grader:hover .cat > img {
+  scale: 1.2;
+  transition: all 1s ease;
+}
+
+.cat h3 {
+  font-size: 1.2rem;
+}
+
+.cat h3::after {
+  content: "→";
+  display: inline-block;
+  margin-left: 4px; /* Adjust the spacing as needed */
+  font-size: 21px; /* Adjust the size as needed */
+  color: #fff; /* Change the color as needed */
+}
+
+/* Featured prodcuts */
+.product {
+  position: relative;
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.product-image {
+  position: relative;
+  overflow: hidden;
+}
+
+.product-image img {
+  display: block;
+  width: 100%;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.main-image {
+  z-index: 1;
+}
+
+.hover-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transform: scale(1.5);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  z-index: 0;
+}
+
+.product:hover .main-image {
+  opacity: 0;
+}
+
+.product:hover .hover-image {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.product h4 {
+  font-size: var(--fs-sm);
+  font-weight: bold;
+  margin-top: 1rem;
+}
+
+.product h5 {
+  font-size: 14px;
+  color: #e22222;
+  margin-top: 10px;
+}
+
+/* Hot Section */
+
+.image-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: auto;
+}
+
+.zoom-image {
+  width: 100%;
+  height: auto;
+  transition: transform 0.3s ease;
+  cursor: zoom-in;
+}
+
+.hot ul {
+  flex-direction: column;
+}
+
+.hot li {
+  flex-grow: 0;
+  flex-shrink: 1;
+  font-size: 1rem;
+  display: inline-block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.hot li::before {
+  content: "-";
+  display: inline-block;
+  margin-right: 4px;
+}
